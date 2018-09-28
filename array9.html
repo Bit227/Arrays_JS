@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+</head>
+
+
+<body>
+
+	<h2>Ejercicio con Arrays 9</h2>
+
+	<p id="texto1">Dado el array con el objeto siguiente:<br>
+<pre> personas = [{nombre: "Pedro", apellido: "León", edad: 23, dirección: "Av. Del Pinar, 41", sexo: "masculino"}, 
+             {nombre: "Paco", apellido: "Andres", edad: 12, dirección: "Huertas, 11", sexo: "masculino"}, 
+             {nombre: "Carlos", apellido: "Muiño", edad: 24, dirección: "Parla City", sexo: "masculino"}, 
+             {nombre: "Lluis", apellido: "Sancho", edad: 35, dirección: "Alcorcon City", sexo: "masculino"}]</pre></p>
+     <br>
+
+     <ol>
+     	<li>Itera sobre el array y muestra todos los valores del hash. </li>
+     	<li>Crea un nuevo hash con tus datos y añádelo al array. Itera de nuevo sobre el array mostrando ambos objetos en pantalla.</li>
+     	<li>Itera sobre el array y modifica el campo de edad multiplicado por 2, y muestra el nuevo array con el valor cambiado.</li>
+     	<li>Itera sobre el array y elimina la clave "sexo" de todos los objetos, muestra el resultado del nuevo array</li>
+     	<li>Busca en el array todos las personas menores de 24 y muéstralas en pantalla, su nombre y apellidos.</li>
+     	<li>Dado el array = [{nombre: "Miquel", apellido: "Dominguez", edad: 43, dirección: "Barcelona", sexo: "masculino"}], únelo con el array principal y muéstralo por pantalla. </li>
+     	<li>Ordena el array por edad de menor a mayor.</li>
+
+     </ol>
+
+	<br><br>
+		
+
+	<p> El resultado es:</p><br><br>
+
+
+	<script>
+
+		var personas = [{nombre: "Pedro", apellido: "León", edad: 23, direccion: "Av. Del Pinar, 41", sexo: "masculino"}, 
+					{nombre: "Paco", apellido: "Andres", edad: 12, direccion: "Huertas, 11", sexo: "masculino"}, 
+					{nombre: "Carlos", apellido: "Muiño", edad: 24, direccion: "Parla City", sexo: "masculino"}, 
+					{nombre: "Lluis", apellido: "Sancho", edad: 35, direccion: "Alcorcon City", sexo: "masculino"}];
+
+//********************************************************************************************************************************************************
+		document.write("Apartado 1:"+ "<br>" + "<br>");
+
+
+		// A la hora de mostrar el array por pantalla mediante "document.write" debemos usar un bucle for, para ir recorriendo cada uno de sus elementos
+
+		for (var i=0; i<personas.length;i++) {
+			
+			document.write("<b>"+ "nombre: "+"</b>"+ personas[i].nombre+ " | " +"<b>" +"apellido: "+"</b>"+ personas[i].apellido + " | "+"<b>" + "edad: "+"</b>" + personas[i].edad + " | "+ "<b>" +"dirección: " + "</b>"+ personas[i].direccion + " | "+ "<b>"+"sexo: "+"</b>" + personas[i].sexo + "</b>");
+			document.write("<br>");
+		}
+
+		
+
+//********************************************************************************************************************************************************
+
+
+		document.write("<br>" + "<br>"+"Apartado 2:"+ "<br>" + "<br>");
+
+		// Se crea el nuevo hash (¡ojo, las llaves!) y se introduce en el array con un push
+
+
+		personas.push({nombre: "Fernando", apellido: "Mencía", edad: 43, direccion: "Plaza Dr. laguna,5", sexo: "masculino"});
+
+		for (var i=0; i<personas.length;i++) {
+			
+			document.write("<b>"+ "nombre: "+"</b>"+ personas[i].nombre+ " | " +"<b>" +"apellido: "+"</b>"+ personas[i].apellido + " | "+"<b>" + "edad: "+"</b>" + personas[i].edad + " | "+ "<b>" +"dirección: " + "</b>"+ personas[i].direccion + " | "+ "<b>"+"sexo: "+"</b>" + personas[i].sexo + "</b>");
+			document.write("<br>");
+		}
+		
+//********************************************************************************************************************************************************
+
+		document.write("<br>" + "<br>"+"Apartado 3:"+ "<br>" + "<br>");
+
+		//En el "document.write" multiplicamos la edad (personas[i]) por 2
+
+		for (var i=0; i<personas.length;i++) {
+			
+			
+			document.write("<b>"+ "nombre: "+"</b>"+ personas[i].nombre+ " | " +"<b>" +"apellido: "+"</b>"+ personas[i].apellido + " | "+"<b>" + "edad: "+"</b>" + personas[i].edad*2 + " | "+ "<b>" +"dirección: " + "</b>"+ personas[i].direccion + " | "+ "<b>"+"sexo: "+"</b>" + personas[i].sexo + "</b>");
+			document.write("<br>");
+		}
+
+		
+//********************************************************************************************************************************************************
+
+		document.write("<br>" + "<br>"+"Apartado 4:"+ "<br>" + "<br>");
+
+		//Se elimina la clave "sexo" usando delete
+
+		for (var i=0; i<personas.length;i++) {
+			
+			delete personas[i].sexo;
+
+			document.write("<b>"+ "nombre: "+"</b>"+ personas[i].nombre+ " | " +"<b>" +"apellido: "+"</b>"+ personas[i].apellido + " | "+"<b>" + "edad: "+"</b>" + personas[i].edad + " | "+ "<b>" +"dirección: " + "</b>"+ personas[i].direccion + " | "+ "<b>"+"sexo: "+"</b>" + personas[i].sexo + "</b>");
+			document.write("<br>");	
+
+		}
+
+		
+//********************************************************************************************************************************************************
+
+		document.write("<br>" + "<br>"+"Apartado 5:"+ "<br>" + "<br>");	
+		
+		//Usamos filter() para filtrar por edad, que solo se muestren aquellos que tengan menos de 24 años. ¡Ojo a la función que va dentro del filter!
+		//A la hora de mostrar el array filtrado, hay que darse cuenta de que el filtro genera un nuevo array, no modifica el array sobre el que se aplica
+		
+		var menor24 = personas.filter(esMenorQue24);
+
+		function esMenorQue24(valor, index, array) {
+			
+			return valor.edad < 24;
+
+		}
+
+			
+		for (var i=0; i<menor24.length;i++) {
+			
+			document.write("<b>"+ "nombre: "+"</b>"+ personas[i].nombre+ " | " +"<b>" +"apellido: "+"</b>"+ personas[i].apellido + " | "+"<b>" + "edad: "+"</b>" + personas[i].edad + " | "+ "<b>" +"dirección: " + "</b>"+ personas[i].direccion + " | "+ "<b>"+"sexo: "+"</b>" + personas[i].sexo + "</b>");
+			document.write("<br>");
+
+		}
+
+			
+//********************************************************************************************************************************************************
+
+		document.write("<br>" + "<br>"+"Apartado 6:"+ "<br>" + "<br>");	
+
+		//Se introduce una nueva entrada en el array mediante un push
+
+		var nuevaPersona = {nombre: "Miquel", apellido: "Dominguez", edad: 43, direccion: "Barcelona", sexo: "masculino"};
+		
+		personas.push(nuevaPersona);
+
+		for (var i=0; i<personas.length;i++) {
+			
+			document.write("<b>"+ "nombre: "+"</b>"+ personas[i].nombre+ " | " +"<b>" +"apellido: "+"</b>"+ personas[i].apellido + " | "+"<b>" + "edad: "+"</b>" + personas[i].edad + " | "+ "<b>" +"dirección: " + "</b>"+ personas[i].direccion + " | "+ "<b>"+"sexo: "+"</b>" + personas[i].sexo + "</b>");
+			
+			document.write("<br>");
+		}
+
+//********************************************************************************************************************************************************		
+
+		document.write("<br>" + "<br>"+"Apartado 7:"+ "<br>" + "<br>");
+
+		//Usamos sort para ordenar las entradas de menor a mayor edad.¡Ojo a los parámetros a y b de la función dentro del sort!
+
+		personas.sort(function(a,b) {return a.edad - b.edad});	
+
+		for (var i=0; i<personas.length;i++) {
+			
+			document.write("<b>"+ "nombre: "+"</b>"+ personas[i].nombre+ " | " +"<b>" +"apellido: "+"</b>"+ personas[i].apellido + " | "+"<b>" + "edad: "+"</b>" + personas[i].edad + " | "+ "<b>" +"dirección: " + "</b>"+ personas[i].direccion + " | "+ "<b>"+"sexo: "+"</b>" + personas[i].sexo + "</b>");
+			
+			document.write("<br>");
+
+		}
+
+//********************************************************************************************************************************************************		
+
+				document.write("<br>" + "<br>"+"Otra forma de presentar el array:"+ "<br>" + "<br>");	
+
+
+		for (var i=0; i<personas.length;i++) {
+			
+			document.write("Persona "+ i  +"<ul>"+ "<li>"+ "<b>"+ "nombre: "+"</b>"+ personas[i].nombre +"</li>"+ "<li>"+  "<b>" +"apellido: "+"</b>"+ personas[i].apellido   + "</li>" + "<li>"+ "<b>" + "edad: "+"</b>" + personas[i].edad +"</li>" + "<li>"+ "<b>" +"dirección: " + "</b>"+ personas[i].direccion  +"</li>"+ "<li>"+ "<b>"+"sexo: "+"</b>" + personas[i].sexo + "</b>"  +"</li>" +"</ul>");
+			
+
+		}
+
+
+
+	</script>
+
+
+<br><br>
+<a href="arraysIndex.html"> Volver a enunciados</a>
+
+</body>
+
+
+</html>

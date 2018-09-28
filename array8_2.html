@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+</head>
+
+
+<body>
+
+	<h2>Ejercicio con Arrays 8</h2>
+
+	<p id="texto1">Dado un array que contiene["azul", "amarillo", "rojo", "verde", "café", "rosa"] determinar si un color introducido por el usuario a través de un input y tras pulsar un botón, se encuentra dentro de un array o no.</p>
+
+
+	<h2>Introduce un color, a ver si está en la lista:</h2>
+
+
+	<form name= "formColor" onsubmit="return comprobarColor()">
+		<input type="text" name="colorUsuario">
+		<input type="submit" value="  Enviar  ">
+	</form>
+
+	<script>
+
+		var coloresArray = ["azul", "amarillo", "rojo", "verde", "café", "rosa"];
+
+		function comprobarColor()
+
+			{
+				var color = document.formColor.colorUsuario.value;
+
+					if (coloresArray.includes(color)==true) {
+
+						window.alert("¡Eres un hacha!");
+					} else {
+
+						window.alert("¡Inténtalo otra vez!");
+					}
+			}
+
+
+
+
+
+
+
+
+	</script>
+<br><br>
+<a href="arraysIndex.html"> Volver a enunciados</a>
+
+</body>
+
+
+</html>

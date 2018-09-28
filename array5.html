@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+</head>
+
+
+<body>
+
+	<h2>Ejercicio con Arrays 5</h2>
+
+	<p id="texto1">Generar una copia del array, pero con todos los elementos incrementados en uno. Mostrarlos en pantalla</p>
+
+	<p>Solución propuesta: <br></p>
+		
+		<p style="color:blue;">
+			
+		var numeros = [0,1,2,3,4,5,6,7,8,9];<br>
+
+		var numeros2 = numeros.slice(); <br>
+
+		numeros2.forEach(function (cifra) {<br>
+		document.write(cifra + 1 +" ");<br>
+
+	});<br>
+
+		</p>
+
+	<p> El resultado es:</p>
+
+
+
+
+<script>
+
+	var numeros = [0,1,2,3,4,5,6,7,8,9];
+
+	var numeros2 = numeros.slice();  //Si se omite el argumento de slice, se genera una copia del array 1 en otro array 2.
+
+
+
+	numeros2.forEach(function (cifra) {
+		document.write(cifra + 1 +" ");
+
+	});
+
+
+</script>
+
+
+
+<br><br>
+<a href="arraysIndex.html"> Volver a enunciados</a>
+
+
+</body>
+
+
+</html>

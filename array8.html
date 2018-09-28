@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+</head>
+
+
+<body>
+
+	<h2>Ejercicio con Arrays 8</h2>
+
+	<p id="texto1">Dado un array que contiene["azul", "amarillo", "rojo", "verde", "café", "rosa"] determinar si un color introducido por el usuario a través de un input y tras pulsar un botón, se encuentra dentro de un array o no.</p>
+
+	<p>Solución propuesta: <br></p>
+		
+		<p style="color:blue;">
+	
+	var colores = ["azul", "amarillo", "rojo", "verde", "café", "rosa"];<br>
+	var colorUsuario = prompt ('Escribe un color para ver si está en la lista');<br>
+	var respuestaUsuario = colores.includes(colorUsuario);<br>
+	console.log(respuestaUsuario);<br><br>
+
+	if (respuestaUsuario == true) {<br>
+		window.alert("¡Muy bien! El color está en la lista");<br>
+	} else {<br>
+		window.alert("¡Qué pena! El color no está en la lista");<br>
+
+	}<br>
+			
+	
+
+	
+		</p>
+
+	<p> El resultado es:</p>
+
+
+
+
+<script>
+	var colores = ["azul", "amarillo", "rojo", "verde", "café", "rosa"];
+	var colorUsuario = prompt ('Escribe un color para ver si está en la lista');
+	var respuestaUsuario = colores.includes(colorUsuario);
+	console.log(respuestaUsuario);
+
+	if (respuestaUsuario == true) {
+		window.alert("¡Muy bien! El color está en la lista");
+	} else {
+		window.alert("¡Qué pena! El color no está en la lista");
+
+	}
+
+
+
+
+</script>
+
+
+
+<br><br>
+<a href="arraysIndex.html"> Volver a enunciados</a>
+
+
+</body>
+
+
+</html>
