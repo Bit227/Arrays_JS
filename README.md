@@ -1,2 +1,2 @@
 # Arrays_JS
-Ejercicios sobre el uso de arrays en JS
+Some basic exercises about arrays in JS.
